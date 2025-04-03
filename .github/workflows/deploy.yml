@@ -24,7 +24,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest tests/health.py
+          pytest tests/
 
   build-and-push:
     needs: test

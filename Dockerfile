@@ -14,7 +14,7 @@ FROM builder AS testing
 COPY ./app /app/app
 COPY ./tests /app/tests
 
-RUN pytest tests/health.py
+RUN pytest tests/
 
 # Deploy
 FROM python:3.9-slim
