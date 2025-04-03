@@ -1,9 +1,8 @@
 # "Building"
 FROM python:3.9-slim AS builder
 
-WORKDIR /app
+WORKDIR /build
 
-# Copy requirements
 COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
@@ -11,20 +10,21 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Testing
 FROM builder AS testing
 
-COPY ./app /app/app
-COPY ./tests /app/tests
+COPY main.py /build/
+COPY tests/ /build/tests/
 
-RUN pytest tests/
+RUN cd /build && pytest tests/
 
 # Deploy
 FROM python:3.9-slim
 
+RUN mkdir -p /app
 WORKDIR /app
 
 COPY --from=builder /usr/local/lib/python3.9/site-packages/ /usr/local/lib/python3.9/site-packages/
 COPY --from=builder /usr/local/bin/ /usr/local/bin/
 
-COPY ./app /app
+COPY main.py /app/
 
 RUN adduser --disabled-password --gecos "" appuser
 USER appuser
