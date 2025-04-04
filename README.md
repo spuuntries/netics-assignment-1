@@ -10,6 +10,7 @@ This repository contains my submission for the first assignment in NETICS Open R
 | Student ID (NRP) | 5054231013                                                                                                                 |
 | Deployment URL   | [https://netics-assignment-1.spuun.art/health](https://netics-assignment-1.spuun.art/health)                               |
 | Status Page URL  | [https://hetrixtools.com/r/adbdb5c508a2763f1244b328bff6a0ce/](https://hetrixtools.com/r/adbdb5c508a2763f1244b328bff6a0ce/) |
+| GCHR URL         | [ghcr.io/spuuntries/netics-assignment-1:latest](ghcr.io/spuuntries/netics-assignment-1:latest)                             |
 
 # 📝 preface
 
